@@ -1,4 +1,5 @@
 import { Candidate } from '../interfaces/Candidate.interface';
+import { useState }  from 'react';
 const [candidate, setCandidate] = useState<Candidate | null>(null);
 
 const Nav = () => {

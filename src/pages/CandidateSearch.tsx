@@ -3,7 +3,6 @@ import { searchGithub, searchGithubUser } from '../api/API';
 import { Candidate } from '../interfaces/Candidate.interface';
 
 const CandidateSearch = () => {
-  return <h1>CandidateSearch</h1>;
   const [candidateList, setCandidateList] = useState<string[]>([]);
   const [currentCandidate, setCurrentCandidate] = useState<Candidate | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -43,6 +42,39 @@ const CandidateSearch = () => {
     loadCandidateProfile();
   }, [candidateList]);
 
-  
+  const handleAccept = () => {
+    if (currentCandidate) {
+      const saved = JSON.parse(localStorage.getItem('savedCandidates') || '[]');
+      saved.push(currentCandidate);
+      localStorage.setItem('savedCandidates', JSON.stringify(saved));
+    }
+    handleNext();
+  };
+
+  const handleNext = () => {
+    setCandidateList((prev) => prev.slice(1));
+  };
+
+  if (error) return <p>{error}</p>;
+  if (isLoading) return <p>Loading...</p>;
+  if (!currentCandidate) return <p>No more candidates to review.</p>;
+
+  return (
+    <div>
+      <h2>{currentCandidate.name}</h2>
+      <img src={currentCandidate.avatar_url} alt={currentCandidate.login} width={100} />
+      <p>Username: {currentCandidate.login}</p>
+      <p>Location: {currentCandidate.location || 'N/A'}</p>
+      <p>Email: {currentCandidate.email || 'N/A'}</p>
+      <p>Company: {currentCandidate.company || 'N/A'}</p>
+      <a href={currentCandidate.html_url} target="_blank" rel="noopener noreferrer">
+        GitHub Profile
+      </a>
+      <br />
+      <button onClick={handleAccept}>+</button>
+      <button onClick={handleNext}>-</button>
+    </div>
+  );
+};
 
 export default CandidateSearch;
