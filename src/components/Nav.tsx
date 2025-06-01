@@ -1,12 +1,24 @@
-import { Candidate } from '../interfaces/Candidate.interface';
-import { useState }  from 'react';
-const [candidate, setCandidate] = useState<Candidate | null>(null);
+import { NavLink } from 'react-router-dom';
 
 const Nav = () => {
-  // TODO: Add necessary code to display the navigation bar and link between the pages
   return (
-    <div>Nav</div>
-  )
+    <nav className="nav">
+      <NavLink
+        to="/"
+        className={({ isActive }) => `nav-link${isActive ? ' acitve' : ''}`}
+      >
+        Candidate Search
+      </NavLink>
+
+
+      <NavLink
+        to="/SavedCandidates"
+        className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
+      >
+        Saved Candidates
+      </NavLink>
+    </nav>
+  );
 };
 
 export default Nav;

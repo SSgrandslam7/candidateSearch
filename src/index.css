@@ -96,8 +96,12 @@ tbody tr:nth-child(odd) {
 
 .nav {
   display: flex;
-  justify-content: flex-start;
-  padding: 1em 2em;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+  margin-top: 2rem;
 }
 
 .nav-item {
@@ -106,12 +110,19 @@ tbody tr:nth-child(odd) {
 }
 
 .nav-link {
-  color: #fff;
   text-decoration: none;
+  color: #333;
+  font-weight: normal;
+  transition: color 0.2s;
 }
 
-.active {
-  font-weight: 700;
+.nav-lik:hover {
+  color: #007bff;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  color: #007bff;
 }
 
 .table {
