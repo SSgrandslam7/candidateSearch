@@ -60,20 +60,23 @@ const CandidateSearch = () => {
   if (!currentCandidate) return <p>No more candidates to review.</p>;
 
   return (
-    <div>
-      <h2>{currentCandidate.name}</h2>
-      <img src={currentCandidate.avatar_url} alt={currentCandidate.login} width={100} />
-      <p>Username: {currentCandidate.login}</p>
-      <p>Location: {currentCandidate.location || 'N/A'}</p>
-      <p>Email: {currentCandidate.email || 'N/A'}</p>
-      <p>Company: {currentCandidate.company || 'N/A'}</p>
-      <a href={currentCandidate.html_url} target="_blank" rel="noopener noreferrer">
+    <main>
+      <h1>Candidate Search</h1>
+      <div className="candidate-card">
+        <img src={currentCandidate.avatar_url} alt={currentCandidate.login} className="avatar" />
+        <h2>{currentCandidate.name} <em>({currentCandidate.login})</em></h2>
+        <p>Location: {currentCandidate.location || 'N/A'}</p>
+        <p>Email: {currentCandidate.email || 'N/A'}</p>
+        <p>Company: {currentCandidate.company || 'N/A'}</p>
+        <a href={currentCandidate.html_url} target="_blank" rel="noopener noreferrer">
         GitHub Profile
-      </a>
-      <br />
-      <button onClick={handleAccept}>+</button>
-      <button onClick={handleNext}>-</button>
-    </div>
+        </a>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', width: '150px', marginTop: '1.5rem' }}>
+        <button className="circle-button red" onClick={handleAccept}>-</button>
+        <button className="circle-button greeen" onClick={handleNext}>+</button>
+      </div>
+    </main>
   );
 };
 

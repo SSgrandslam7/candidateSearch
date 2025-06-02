@@ -20,24 +20,20 @@ const SavedCandidates = () => {
   }
 
   return (
-    <div>
+    <main>
       <h1>Potential Candidates</h1>
       {savedCandidates.map((candidate) => (
-        <div key={candidate.login} style={{ border: '1px solid #ccc', padding: '1rem', marginBottom: '1rem' }}>
-          <h2>{candidate.name}</h2>
-          <img src={candidate.avatar_url} alt={candidate.login} width={100} />
-          <p>Username: {candidate.login}</p>
-          <p>Location: {candidate.location || 'N/A'}</p>
-          <p>Email: {candidate.email || 'N/A'}</p>
-          <p>Company: {candidate.company || 'N/A'}</p>
-          <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">
-            GitHub Profile
-          </a>
-          <br />
-          <button onClick={() => handleRemove(candidate.login)}>Remove</button>
+        <div className="candidate-card" key={candidate.login}>
+        <img src={candidate.avatar_url} alt={candidate.login} className="avatar" />
+        <h2>{candidate.name} <em>({candidate.login})</em></h2>
+          <p>Location: {candidate.location || "N/A"}</p>
+          <p>Email: {candidate.email || "N/A"}</p>
+          <p>Company: {candidate.company || "N/A"}</p>
+          <a href={candidate.html_url} target="_blank">GitHub Profile</a>
+          <button className="circle-button red" onClick={() => handleRemove(candidate.login)}>−</button>
         </div>
       ))}
-    </div>
+    </main>
   );
 };
 
