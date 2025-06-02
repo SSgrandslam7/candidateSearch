@@ -44,20 +44,24 @@ main {
   display: flex;
   justify-content: flex-start;
   gap: 2rem;
-  padding: 1rem;
+  padding: 1rem 2rem;
   background: linear-gradient(180deg, rgb(32, 44, 136) 0%, rgba(9, 9, 121, 1) 15%, rgba(0, 2, 18, 1) 100%);
   width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
 .nav-link {
   text-decoration: none;
-  color: #333;
+  color: white;
   font-weight: normal;
 }
 
 .nav-link.active {
   font-weight: bold;
-  border-bottom: 2px solid #646cff;
+  border-bottom: 2px solid #fff;
 }
 
 .candidate-card {
@@ -104,8 +108,12 @@ main {
 }
 
 .table {
-  width: 80vw;
-  table-layout: fixed;
+  width: 90%;
+  max-width: 1200px;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  background-color: #000;
+  color: white;
 }
 
 .table th,
@@ -113,6 +121,10 @@ main {
   border: 1px solid #444;
   padding: 0.75rem;
   text-align: left;
+  vertical-align: top;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 200px;
 }
 
 .table th {
