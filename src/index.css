@@ -45,8 +45,8 @@ main {
   justify-content: flex-start;
   gap: 2rem;
   padding: 1rem 2rem;
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(4px);
+  background: transparent;
+  backdrop-filter: none;
   width: 100%;
   position: fixed;
   top: 0;

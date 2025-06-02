@@ -73,8 +73,8 @@ const CandidateSearch = () => {
         </a>
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', width: '150px', marginTop: '1.5rem' }}>
-        <button className="circle-button red" onClick={handleAccept}>-</button>
-        <button className="circle-button green" onClick={handleNext}>+</button>
+        <button className="circle-button red" onClick={handleNext}>-</button>
+        <button className="circle-button green" onClick={handleAccept}>+</button>
       </div>
     </main>
   );
