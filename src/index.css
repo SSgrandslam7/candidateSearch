@@ -80,6 +80,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 4rem;
 }
 
 tr {
@@ -94,10 +95,10 @@ tbody tr:nth-child(odd) {
 
 .nav {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 2rem;
   padding: 1rem;
-  background-color: #f0f0f0;
+  background: linear-gradient(180deg, rgb(32, 44, 136) 0%, rgba(9, 9, 121, 1) 15%, rgba(0, 2, 18, 1) 100%);
   width: 100%;
 }
 
