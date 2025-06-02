@@ -1,33 +1,47 @@
-# React + TypeScript + Vite
+# Candidate Search App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+A responsive React + TypeScript application for browsing GitHub user profiles and saving potential candidates. The app fetches random public profiles using the GitHub REST API, allows you to accept or reject candidates, and persistently stores accepted profiles in localStorage.
 
-Currently, two official plugins are available:
+Live Site: [https://your-render-deployment.onrender.com](https://your-render-deployment.onrender.com)
 
-* [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md), which uses [Babel](https://babeljs.io/) for Fast Refresh
-* [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc), which uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
 
-If you're developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-* Configure the top-level `parserOptions` property as follows:
+## Screenshots
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+![Candidate Search page](./Assets/13-01-candidate_search_homepage.png)
+![Saved Candidates page](./Assets/13-02-candidate_search_potential_candidates.png)
 
-* Replace `plugin:@typescript-eslint/recommended` with `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`.
-* Optionally, add `plugin:@typescript-eslint/stylistic-type-checked`.
-* Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` and `plugin:react/jsx-runtime` to the `extends` list.
 
----
-© 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+## Features
+
+- Randomly loads GitHub user profiles with full details
+- Accept (+) or reject (–) a candidate
+- Saves accepted candidates to localStorage
+- Saved candidates view presented in a clean table format
+- Skips profiles that are missing required info (e.g., email or bio)
+- Uses GitHub token to avoid rate-limiting
+- Fully deployed on Render
+
+
+## Tech Stack
+
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [GitHub REST API](https://docs.github.com/en/rest)
+- [Render](https://render.com/) for deployment
+
+
+## Installation
+
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/your-username/candidate-search.git
+   cd candidate-search
