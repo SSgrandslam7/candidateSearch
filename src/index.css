@@ -45,7 +45,8 @@ main {
   justify-content: flex-start;
   gap: 2rem;
   padding: 1rem 2rem;
-  background: linear-gradient(180deg, rgb(32, 44, 136) 0%, rgba(9, 9, 121, 1) 15%, rgba(0, 2, 18, 1) 100%);
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
   width: 100%;
   position: fixed;
   top: 0;
