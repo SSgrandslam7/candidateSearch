@@ -30,14 +30,18 @@ const searchGithubUser = async (username: string) => {
         Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
       },
     });
+
     const data = await response.json();
+
     if (!response.ok) {
-      throw new Error('invalid API response, check the network tab');
+      console.warn(`Github user ${username} not found. Status: ${response.status}`);
+      throw new Error(`User not found: ${username}`);
     }
+
     return data;
   } catch (err) {
-    // console.log('an error occurred', err);
-    return {};
+    console.error("Error fetching user profile:", err);
+    return null;
   }
 };
 

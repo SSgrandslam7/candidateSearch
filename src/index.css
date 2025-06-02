@@ -37,7 +37,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 4rem;
+  padding-top: 2rem;
 }
 
 .nav {

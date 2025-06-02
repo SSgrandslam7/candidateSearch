@@ -7,11 +7,13 @@ const CandidateSearch = () => {
   const [currentCandidate, setCurrentCandidate] = useState<Candidate | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const loadCandidates = async () => {
+  
+  const loadCandidates = async () => {
       try {
         const rawUsers = await searchGithub();
+        if (!rawUsers || rawUsers.length === 0) {
+        throw new Error("No users returned from GitHub");
+        }
         const usernames = rawUsers.map((user: any) => user.login);
         setCandidateList(usernames);
       } catch (err) {
@@ -19,27 +21,43 @@ const CandidateSearch = () => {
       }
     };
 
+  useEffect(() => {
     loadCandidates();
   }, []);
 
   useEffect(() => {
     const loadCandidateProfile = async () => {
       if (candidateList.length === 0) {
+        setIsLoading(false);
         setCurrentCandidate(null);
         return;
       }
       setIsLoading(true);
+
       try {
         const profile = await searchGithubUser(candidateList[0]);
+        
+        if (!profile ){
+          console.warn("Skipping incomplete or invalid profile:", profile?.login);
+          setCandidateList((prev) => prev.slice(1));
+          return;
+        }
+
         setCurrentCandidate(profile);
         setIsLoading(false);
       } catch (err) {
-        setError('Failed to load candidate profile.');
-        setIsLoading(false);
+        console.warn("Skipping failed user:", candidateList[0],  err);
+        setCandidateList((prev) => prev.slice(1));
       }
     };
 
     loadCandidateProfile();
+  }, [candidateList]);
+
+  useEffect(() => {
+    if (candidateList.length === 0 && !isLoading) {
+      loadCandidates();
+    }
   }, [candidateList]);
 
   const handleAccept = () => {
@@ -68,6 +86,7 @@ const CandidateSearch = () => {
         <p>Location: {currentCandidate.location || 'N/A'}</p>
         <p>Email: {currentCandidate.email || 'N/A'}</p>
         <p>Company: {currentCandidate.company || 'N/A'}</p>
+        <p>Bio: {currentCandidate.bio || 'N/A'}</p>
         <a href={currentCandidate.html_url} target="_blank" rel="noopener noreferrer">
         GitHub Profile
         </a>
