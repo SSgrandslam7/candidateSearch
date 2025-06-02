@@ -3,22 +3,43 @@
 ## Description
 A responsive React + TypeScript application for browsing GitHub user profiles and saving potential candidates. The app fetches random public profiles using the GitHub REST API, allows you to accept or reject candidates, and persistently stores accepted profiles in localStorage.
 
-Live Site: [https://your-render-deployment.onrender.com](https://your-render-deployment.onrender.com)
-
+**Live Site:** [https://candidatesearch-bopm.onrender.com](https://candidatesearch-bopm.onrender.com)
 
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
+- [Features](#features)
 - [Credits](#credits)
 - [License](#license)
 
 
-## Screenshots
+## Installation
 
-![Candidate Search page](./Assets/13-01-candidate_search_homepage.png)
-![Saved Candidates page](./Assets/13-02-candidate_search_potential_candidates.png)
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/SSgrandslam7/candidateSearch.git
+   cd candidateSearch
+
+2. **install dependencies:**
+   ```bash
+   npm install
+
+3. **Add a GitHub token:**
+   Create a .env file in ./environment directory with:
+   VITE_GITHUB_TOKEN=your_github_personal_access_token
+
+4. **Start the dev server:**
+   ```bash
+   npm run dev
 
 
+**Usage:**
+To be able to view multiple GitHub profiles in a short amount of time, and be able to quickly save potential candidates to later consider their profile and whether they match the qualifications you are looking for in a candidate. 
+
+   ![Candidate Search page](./src/assets/candidate%20search%20page.png)
+   ![Saved Candidates page](./src/assets/saved%20candidates%20page.png)
+
+   
 ## Features
 
 - Randomly loads GitHub user profiles with full details
@@ -30,7 +51,7 @@ Live Site: [https://your-render-deployment.onrender.com](https://your-render-dep
 - Fully deployed on Render
 
 
-## Tech Stack
+## Credits
 
 - [React](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -38,10 +59,5 @@ Live Site: [https://your-render-deployment.onrender.com](https://your-render-dep
 - [GitHub REST API](https://docs.github.com/en/rest)
 - [Render](https://render.com/) for deployment
 
-
-## Installation
-
-1. **Clone the repo:**
-   ```bash
-   git clone https://github.com/your-username/candidate-search.git
-   cd candidate-search
+**License:**
+MIT © 2025 Stephen Schier
