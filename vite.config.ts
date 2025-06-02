@@ -6,7 +6,7 @@ const renderHost = "candidatesearch-bopm.onrender.com";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  envDir: './env',
+  envDir: './environment',
   plugins: [react()],
   preview: {
     port: parseInt(process.env.PORT || '4173'),
