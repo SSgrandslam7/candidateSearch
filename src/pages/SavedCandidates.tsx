@@ -15,24 +15,39 @@ const SavedCandidates = () => {
     localStorage.setItem('savedCandidates', JSON.stringify(updatedList));
   };
 
-  if (savedCandidates.length === 0) {
-    return <p>No saved candidates found.</p>;
-  }
+  if (savedCandidates.length === 0) return <p>No saved candidates found.</p>;
 
   return (
     <main>
       <h1>Potential Candidates</h1>
-      {savedCandidates.map((candidate) => (
-        <div className="candidate-card" key={candidate.login}>
-        <img src={candidate.avatar_url} alt={candidate.login} className="avatar" />
-        <h2>{candidate.name} <em>({candidate.login})</em></h2>
-          <p>Location: {candidate.location || "N/A"}</p>
-          <p>Email: {candidate.email || "N/A"}</p>
-          <p>Company: {candidate.company || "N/A"}</p>
-          <a href={candidate.html_url} target="_blank">GitHub Profile</a>
-          <button className="circle-button red" onClick={() => handleRemove(candidate.login)}>−</button>
-        </div>
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Email</th>
+            <th>Company</th>
+            <th>Bio</th>
+            <th>Reject</th>
+          </tr>
+        </thead>
+      <tbody>
+        {savedCandidates.map((candidate) => (
+        <tr key={candidate.login}>
+          <td><img src={candidate.avatar_url} alt={candidate.login} className="avatar" /></td>
+          <td>{candidate.name} <em>({candidate.login})</em></td>
+          <td>{candidate.location || "N/A"}</td>
+          <td>{candidate.email || "N/A"}</td>
+          <td>{candidate.company || "N/A"}</td>
+          <td>{candidate.bio || 'N/A'}</td>
+          <td>
+            <button className="circle-button red" onClick={() => handleRemove(candidate.login)}>−</button>
+          </td>
+        </tr>
       ))}
+      </tbody>
+      </table>
     </main>
   );
 };

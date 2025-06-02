@@ -12,15 +12,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
   background: linear-gradient(180deg, rgb(32, 44, 136) 0%, rgba(9, 9, 121, 1) 15%, rgba(0, 2, 18, 1) 100%);
   margin: 0;
@@ -31,9 +22,60 @@ body {
   justify-content: start;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+main {
+  color: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+  padding: 1rem;
+  background: linear-gradient(180deg, rgb(32, 44, 136) 0%, rgba(9, 9, 121, 1) 15%, rgba(0, 2, 18, 1) 100%);
+  width: 100%;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: normal;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  border-bottom: 2px solid #646cff;
+}
+
+.candidate-card {
+  background-color: #000;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  color: white;
+  text-align: center;
+  width: 320px;
+  margin-top: 2rem;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
 }
 
 .circle-button {
@@ -61,77 +103,25 @@ h1 {
   background-color: #28a745;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
-main {
-  color: #fff;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 4rem;
-}
-
-tr {
-  border-radius: 10px;
-  background-color: #000;
-  color: white;
-}
-
-tbody tr:nth-child(odd) {
-  background-color: #333333;
-}
-
-.nav {
-  display: flex;
-  justify-content: flex-start;
-  gap: 2rem;
-  padding: 1rem;
-  background: linear-gradient(180deg, rgb(32, 44, 136) 0%, rgba(9, 9, 121, 1) 15%, rgba(0, 2, 18, 1) 100%);
-  width: 100%;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: #333;
-  font-weight: normal;
-}
-
-.nav-link.active {
-  font-weight: bold;
-  border-bottom: 2px solid #646cff;
-}
-
 .table {
   width: 80vw;
   table-layout: fixed;
 }
 
-.candidate-card {
-  background-color: #000;
-  padding: 1.5rem;
-  border-radius: 1rem;
-  color: white;
-  text-align: center;
-  width: 320px;
-  margin-top: 2rem;
+.table th,
+.table td {
+  border: 1px solid #444;
+  padding: 0.75rem;
+  text-align: left;
 }
 
-.avatar {
-  width: 100px;
-  height: 100px;
+.table th {
+  background-color: #222;
+}
+
+.table td img {
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 1rem;
 }
